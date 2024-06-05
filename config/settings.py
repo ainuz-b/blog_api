@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,7 +145,7 @@ REST_FRAMEWORK =  {
     'DEFAULT_AUTHENTICATION_CLASSES':
     ('rest_framework_simplejwt.authentication.JWTAuthentication',),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100
+    'PAGE_SIZE': 3
 }
 
 
@@ -160,8 +159,4 @@ EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=700000),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
-}
-
-JAZZMIN_SETTINGS = {
-    "site_brand": "hello"
 }

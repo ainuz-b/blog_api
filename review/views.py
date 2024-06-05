@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from post.models import Post
 
@@ -14,16 +14,16 @@ from .serializers import CommentSerializer
 class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
     def get_permissions(self):
-        if self.action in ['list', 'retrive']:
+        if self.action in ['list', 'retrieve']:
             self.permission_classes = [AllowAny]
         elif self.action in ['create']:
             self.permission_classes = [IsAuthenticated]
-        elif self.action in ['upate', 'partial_update', 'destroy']:
+        elif self.action in ['update', 'partial_update', 'destroy']:
             self.permission_classes = [IsOwnerOrReadOnly]
-        return [permission() for permission in self.permission_classes]
-
-
+        return [permission() for permission in self.permission_classes] 
+        
 
 @api_view(['POST'])
 def toggle_like(request, id):
@@ -36,5 +36,3 @@ def toggle_like(request, id):
     else:
         Like.objects.create(user=user, post=post)
     return Response(201)
-
-

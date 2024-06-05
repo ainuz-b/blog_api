@@ -7,7 +7,6 @@ router = DefaultRouter()
 router.register('comment', CommentViewSet)
 
 urlpatterns = [
-    path ('like/<int:id>', toggle_like),
+    path('like/<int:id>/', toggle_like),
     path('', include(router.urls))
 ]
-

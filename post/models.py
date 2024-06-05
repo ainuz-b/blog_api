@@ -12,7 +12,7 @@ class Post(models.Model):
 
     image = models.ImageField(upload_to='posts_img', blank=True, verbose_name='Фото')
 
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     updated_at = models.DateTimeField(auto_now=True)
 
