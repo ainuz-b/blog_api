@@ -160,3 +160,14 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=700000),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
 }
+
+CORS_ALLOWED_METHODS = ['OPTIONS', 'GET', 'PUT', 'PATCH', 'POST', 'DELETE']
+
+CORS_ALLOWED_ORIGINS = ["http://localhost", "http://127.0.0.1", "http://0.0.0.0", "http://0.0.0.0", "http://34.125.43.58",  "http://127.0.0.1", "http://localhost"]
+
+CORS_ALLOWED_ORIGIN_REGEXES = ["http://localhost", "http://127.0.0.1", "http://0.0.0.0", "http://0.0.0.0", "http://34.125.43.58",  "http://127.0.0.1", "http://localhost"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CELERY_BROKER_URL='redis://localhost:6379'
+CELERY_RESULT_BACKEND='redis://localhost:6379'
